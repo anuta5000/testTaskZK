@@ -9,9 +9,4 @@ dependencies {
     deploy project(':ejb')
     deploy project(path: ':web', configuration: 'archives')
 }
-/*
-allprojects {
-    apply plugin: 'java'
-    group = 'org.gradle.sample'
-}
-*/
+
