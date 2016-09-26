@@ -1,0 +1,17 @@
+apply plugin: 'war'
+
+repositories {
+   mavenCentral()
+}
+
+dependencies {
+   // compile project(':ejb')
+  compile 'org.zkoss.zk:zhtml:6.5.4'
+   compile 'org.zkoss.zk:zk:6.5.4'
+   compile 'org.zkoss.zk:zkplus:6.5.4'
+   compile 'org.zkoss.zk:zul:6.5.4'
+   compile 'org.zkoss.zk:zkbind:6.5.4'
+            
+}
+
+
