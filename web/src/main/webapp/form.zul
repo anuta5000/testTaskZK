@@ -1,0 +1,28 @@
+<window title="My Test Application" border="normal">
+    <label value="Тестовое задание."/>
+    <grid>
+        <columns>
+            <column label="Поле" width="120px" />
+            <column label="Контент" />
+        </columns>
+        <rows>
+            <row>
+                <label value="Имя"/>
+                <textbox id="firstname"/>
+            </row> 
+             <row>
+                <label value="Фамилия"/>
+                <textbox id="lastname"/>
+            </row>
+            <row>
+                <label value="Email"/>
+                <textbox id="email"/>
+            </row>
+            <row>
+                <button apply="com.view.ViewForm" id="btsubmit" label="Submit form" onClick='Messagebox.show("Извините, пока еще не готово")'/>
+                <label value="" id="result" />
+            </row>
+        </rows>
+
+    </grid>        
+</window>
