@@ -1,37 +1,52 @@
-package com.view;
+
+
+package view;
 
 /**
  *
  * @author Анна
  */
-
-//import org.zkoss.bind.annotation.Command;
-//import org.zkoss.bind.annotation.ContextParam;
-//import org.zkoss.bind.annotation.ContextType;
-//import org.zkoss.bind.annotation.NotifyChange;
-import org.zkoss.zk.ui.event.InputEvent;
-import org.zkoss.zk.ui.Component;
-import org.zkoss.zk.ui.util.Composer;
-import org.zkoss.zk.ui.event.EventListener;
-import org.zkoss.zk.ui.event.Event;
-import org.zkoss.zul.Label;
-import org.zkoss.zk.ui.select.SelectorComposer;
-import org.zkosorg.zkoss.zk.ui.selects.annotation.*;
-import org.zkoss.zul.*;
+import java.util.ArrayList;
+import java.util.List;
+import org.zkoss.bind.annotation.Init;
+import entity.Person;
+import entity.Adress;
+import dao.PersonDAO;
 
 
 
-public class ViewForm extends SelectorComposer<Window> {
+
+public class ViewForm {
     
-   @Wire
-    Textbox firstname; 
-    @Wire
-    Button result; 
-     
-    @Listen("onClick=#btsubmit")
-    public void submit(Event event) { 
-        String prop = System.getProperty(firstname.getValue());
-        result.appendChild(new Label(prop));
+    private Person selected;
+    private List<Adress> adressesList = new ArrayList<Adress>();
+    private List<Person> persons = new ArrayList<Person>(new PersonDAO().getPersonList());
+    
+    
+    @Init
+    public void init() {   
+       // selected = persons.get(0); // Selected First One
     }
     
+    public List<Person> getPersonList() {
+        return persons;
+    }
+    
+    public void setSelectedPerson(Person selected) {
+        this.selected = selected;
+        setAdressesList(selected.getAdresses());
+    }
+ 
+    public Person getSelectedPerson() {
+        return selected;
+    }    
+ 
+    public List<Adress> getAdressesList() {
+        return adressesList;
+    }
+    
+    public void setAdressesList(List<Adress> list) {
+        adressesList = list;
+    }
+
 }
